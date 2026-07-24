@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Kinder 2026 - Inicio</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url('fondo_trazos.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 235, 59, 0.4);
+            z-index: -1;
+        }
+
+        h1 {
+            color: #E91E63;
+            font-size: 2.2rem;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px white;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+            width: 85%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        .menu-container2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 4px solid #4CAF50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+        }
+
+        .card.fantasma {
+            opacity: 0.5;
+            pointer-events: none;
+            border: 4px dashed #607D8B;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .card img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .profe-container {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .img-profe {
+            width: 400px;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        .btn-datos {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #3F51B5;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(63, 81, 181, 0.4);
+            border: 2px solid white;
+        }
+
+        .btn-datos:hover {
+            background: #E91E63;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-container2" style="width: 100%; overflow: hidden;">
+        <img src="cabecera.png" alt="Mi Jardín Digital 2026" style="width: 100%; height: auto; display: block;">
+    </div>
+
+    <div class="menu-container">
+        <a href="pk-trazos-01.html" class="card">
+            <img src="trazos.png" alt="Practicar Trazos_01">
+            <h2>Practicar Trazos 01</h2>
+        </a>
+        <a href="vocal_a.html" class="card">
+            <img src="a.png" alt="Vocal A">
+            <h2>Vocal A</h2>
+        </a>
+        <a href="vocal_e.html" class="card">
+            <img src="e.png" alt="Vocal E">
+            <h2>Vocal E</h2>
+        </a>
+        <a href="vocal_i.html" class="card">
+            <img src="i.png" alt="Vocal I">
+            <h2>Vocal I</h2>
+        </a>
+        <a href="vocal_o.html" class="card">
+            <img src="o.png" alt="Vocal O">
+            <h2>Vocal O</h2>
+        </a>
+        <a href="vocal_u.html" class="card">
+            <img src="u.png" alt="Vocal U">
+            <h2>Vocal U</h2>
+        </a>
+        <a href="numero_1a5.html" class="card">
+            <img src="1a5.png" alt="PRACTICAMOS">
+            <h2>PRACTICAMOS</h2>
+        </a>
+        <a href="numero_6.html" class="card">
+            <img src="6.png" alt="Número 6">
+            <h2>Número 6</h2>
+        </a>
+        <a href="numero_7.html" class="card">
+            <img src="7.png" alt="Número 7">
+            <h2>Número 7</h2>
+        </a>
+        <a href="numero_8.html" class="card">
+            <img src="8.png" alt="Número 8">
+            <h2>Número 8</h2>
+        </a>
+        <a href="numero_9.html" class="card">
+            <img src="9.png" alt="Número 9">
+            <h2>Número 9</h2>
+        </a>
+        <a href="numero_10.html" class="card">
+            <img src="10.png" alt="Número 10">
+            <h2>Número 10</h2>
+        </a>
+        <a href="numero_6a10.html" class="card">
+            <img src="1a10.png" alt="PRACTICAMOS">
+            <h2>PRACTICAMOS</h2>
+        </a>
+        <a href="pintar.html" class="card">
+            <img src="pintar.png" alt="PINTAMOS">
+            <h2>PINTAMOS</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1Mz-3hOxiB_Xa7Pv9Nj_1wc9zw78aSRfq/view?usp=sharing" class="card">
+            <img src="payaso.png" alt="JA-JE-JI">
+            <h2>JA JE JI JO JU</h2>
+        </a>
+        <!-- ----------Boton fantasma---------------------
+        <a class="card fantasma">
+            <img src="1a10.png" alt="Próximamente">
+            <h2>Próximamente</h2>
+        </a>
+        <!-- ------------------------------------------- -->
+    </div>
+
+    <div class="profe-container">
+        <img src="profe_maxi.png" alt="Profe Maxi" class="img-profe">
+        <a href="tus_datos.html" class="btn-datos">....Pre-Kinder "D"....</a>
+    </div>
+    <br><br><br>
+</body>
+</html>
