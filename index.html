@@ -204,5 +204,47 @@
         <a href="info.html" class="btn-datos">....PERSONALIZAR....</a>
     </div>
     <br><br><br>
+    <!-- Contador de prueba de 10 días -->
+<div id="contador-demo" style="text-align: center; margin-top: 15px; font-size: 14px; font-weight: bold; color: #333; background: rgba(255, 255, 255, 0.8); padding: 8px 15px; border-radius: 20px; display: inline-block; width: auto; margin-left: auto; margin-right: auto;">
+    ⏳ Versión de prueba: <span id="dias-restantes">10</span> días restantes
+</div>
+
+<script>
+    // Lógica del contador de 10 días
+    (function() {
+        const DIAS_PRUEBA = 10;
+        const STORAGE_KEY = 'inicio_demo_timestamp';
+        const now = new Date().getTime();
+        
+        let installDate = localStorage.getItem(STORAGE_KEY);
+        
+        if (!installDate) {
+            // Si es la primera vez, guardamos el momento exacto
+            localStorage.setItem(STORAGE_KEY, now);
+            installDate = now;
+        }
+        
+        // Calcular diferencia en días
+        const tiempoTranscurrido = now - parseInt(installDate);
+        const diasPasados = Math.floor(tiempoTranscurrido / (1000 * 60 * 60 * 24));
+        let diasRestantes = DIAS_PRUEBA - diasPasados;
+        
+        const contenedor = document.getElementById('contador-demo');
+        const spanDias = document.getElementById('dias-restantes');
+        
+        if (diasRestantes > 0) {
+            spanDias.textContent = diasRestantes;
+        } else {
+            spanDias.textContent = "0";
+            // Bloquear la pantalla o mostrar aviso cuando expire
+            contenedor.innerHTML = "🔒 Versión de prueba expirada. Comunícate para desbloquear.";
+            contenedor.style.color = "#c0392b";
+            
+            // Opcional: Desactivar clics de la página o desenfocar
+            // document.body.style.pointerEvents = 'none';
+            // contenedor.style.pointerEvents = 'auto';
+        }
+    })();
+</script>
 </body>
 </html>
