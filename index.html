@@ -204,27 +204,24 @@
         <a href="info.html" class="btn-datos">....PERSONALIZAR....</a>
     </div>
     <br><br><br>
-    <!-- Contador de prueba de 10 días -->
+<!-- Contador de prueba de 10 días con bloqueo total -->
 <div id="contador-demo" style="text-align: center; margin-top: 15px; font-size: 14px; font-weight: bold; color: #333; background: rgba(255, 255, 255, 0.8); padding: 8px 15px; border-radius: 20px; display: inline-block; width: auto; margin-left: auto; margin-right: auto;">
     ⏳ Versión de prueba: <span id="dias-restantes">10</span> días restantes
 </div>
 
 <script>
-    // Lógica del contador de 10 días
     (function() {
-        const DIAS_PRUEBA = -1;
+        const DIAS_PRUEBA = -1; // Pon 10 para producción, -1 para probar el bloqueo
         const STORAGE_KEY = 'inicio_demo_timestamp';
         const now = new Date().getTime();
         
         let installDate = localStorage.getItem(STORAGE_KEY);
         
         if (!installDate) {
-            // Si es la primera vez, guardamos el momento exacto
             localStorage.setItem(STORAGE_KEY, now);
             installDate = now;
         }
         
-        // Calcular diferencia en días
         const tiempoTranscurrido = now - parseInt(installDate);
         const diasPasados = Math.floor(tiempoTranscurrido / (1000 * 60 * 60 * 24));
         let diasRestantes = DIAS_PRUEBA - diasPasados;
@@ -236,13 +233,36 @@
             spanDias.textContent = diasRestantes;
         } else {
             spanDias.textContent = "0";
-            // Bloquear la pantalla o mostrar aviso cuando expire
             contenedor.innerHTML = "🔒 Versión de prueba expirada. Comunícate para desbloquear.";
             contenedor.style.color = "#c0392b";
+            contenedor.style.backgroundColor = "#fadbd8";
             
-            // Opcional: Desactivar clics de la página o desenfocar
-            // document.body.style.pointerEvents = 'none';
-            // contenedor.style.pointerEvents = 'auto';
+            // BLOQUEO TOTAL DE LA PÁGINA
+            // Evita que hagan clic en cualquier botón o enlace del contenido
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            overlay.style.zIndex = '9999';
+            overlay.style.display = 'flex';
+            overlay.style.flexDirection = 'column';
+            overlay.style.justifyContent = 'center';
+            overlay.style.alignItems = 'center';
+            overlay.style.color = 'white';
+            overlay.style.textAlign = 'center';
+            overlay.style.padding = '20px';
+            
+            overlay.innerHTML = `
+                <div style="background: white; color: #333; padding: 30px; border-radius: 12px; max-width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <h2 style="color: #c0392b; margin-bottom: 15px;">¡Versión de Prueba Expirada!</h2>
+                    <p style="margin-bottom: 20px; font-size: 15px;">El tiempo de uso de esta demo ha finalizado. Comunícate para adquirir la versión completa y personalizada.</p>
+                    <a href="info.html" style="display: inline-block; background-color: #25d366; color: white; padding: 12px 20px; text-decoration: none; border-radius: 25px; font-weight: bold;">Contactar por WhatsApp</a>
+                </div>
+            `;
+            document.body.appendChild(overlay);
         }
     })();
 </script>
